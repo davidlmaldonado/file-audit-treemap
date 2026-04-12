@@ -84,6 +84,16 @@ Optimized for large-scale scans:
 - Progress reporting every 5M lines
 - UUID directory detection — directories with 100+ UUID-named subdirs are automatically bucketed by size tier to keep the treemap navigable
 
+## How the Treemap Handles Scale
+
+The scan captures every file at every depth — `find -type f` with no `-maxdepth`. All size, atime, mtime, and extension metrics at every visible level are computed from the complete set of files underneath, regardless of how the treemap is displayed.
+
+The treemap itself uses depth-aware pruning to keep the HTML navigable at scale. At each level, the builder limits how many child directories are shown and rolls smaller ones into an `(N smaller items)` bucket. The thresholds get progressively tighter at deeper levels — the root may show 30 children, but by depth 7 it caps at 6. Directories below a minimum size threshold for their depth are aggregated rather than rendered individually.
+
+This means very small directories or files may not appear as individual entries in the treemap, but their data is always included in the parent's totals. The size, staleness percentage, and file type breakdowns at any level reflect 100% of the data underneath — nothing is dropped, only consolidated for presentation.
+
+For directories with large numbers of UUID-named subdirectories (common in media ingest workflows), the builder automatically detects these and groups them into size-tier buckets (e.g., "UUID dirs 150+ GB (42)") rather than rendering hundreds of individual entries.
+
 ## Requirements
 
 - Bash 4+
