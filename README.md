@@ -2,6 +2,8 @@
 
 File-level storage audit tooling for large-scale filesystems. Generates interactive HTML treemap dashboards from `find(1)` scan data — designed for petabyte-scale storage with 50M+ files.
 
+![Dashboard Screenshot](screenshot.png)
+
 ## What It Does
 
 Scans all files under a mount point, captures size/atime/mtime, and builds a self-contained HTML dashboard with:
