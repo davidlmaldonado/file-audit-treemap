@@ -2,7 +2,7 @@
 
 File-level storage audit tooling for large-scale filesystems. Generates interactive HTML treemap dashboards from `find(1)` scan data — designed for petabyte-scale storage with 50M+ files.
 
-![Dashboard Screenshot](images/screenshot.png)
+![Dashboard Screenshot](screenshot.png)
 
 ## What It Does
 
@@ -13,7 +13,7 @@ Scans all files under a mount point, captures size/atime/mtime, and builds a sel
 - **Modification age analysis** (mtime) — identifies unmodified data by the same tiers
 - **File type breakdown** — top extensions by consumed space
 - **Largest file identification** — files >100 MB surfaced per directory
-- **Duplicate detection** — same filename + size across different directories (≥1 MiB)
+- **Duplicate detection** — same filename + size across different directories (≥1 MiB). No checksum validation is performed — hashing at petabyte scale is not practical. Matches are based on filename and file size, which is a strong indicator but not a guarantee of identical content.
 - **CSV export** — all metrics exportable from the dashboard
 
 ## Architecture

@@ -622,7 +622,7 @@ tr:hover td{{background:rgba(71,184,224,.04)}}
 </style>
 </head>
 <body>
-<div class="hdr"><div><h1>{title} — Duplicate File Report</h1><div class="sub">Files with identical name + size across different directories</div></div><div style="display:flex;gap:8px"><a href="{dashboard_filename}" class="btn" style="text-decoration:none;background:var(--surface);color:var(--text)">← Dashboard</a><button class="btn" onclick="exportCSV()">Export CSV</button></div></div>
+<div class="hdr"><div><h1>{title} — Duplicate File Report</h1><div class="sub">Top 50 Files with identical name + size across different directories</div></div><div style="display:flex;gap:8px"><a href="{dashboard_filename}" class="btn" style="text-decoration:none;background:var(--surface);color:var(--text)">← Dashboard</a><button class="btn" onclick="exportCSV()">Export CSV</button></div></div>
 <div class="stats">
 <div class="st"><div class="st-l">Duplicate Sets</div><div class="st-v">{dupe_sets:,}</div></div>
 <div class="st"><div class="st-l">Duplicate Files</div><div class="st-v">{dupe_files:,}</div></div>
