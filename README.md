@@ -27,7 +27,7 @@ file_scan.sh
   ├─ Phase 2: summary (file counts per volume)
   │
   └─ Phase 3: file_audit_builder.py ──▶ file_audit.html (self-contained dashboard)
-       └─ optional: duplicates.html (standalone duplicate report)
+       └─ optional: duplicates.html (standalone duplicate report - Top 50 duplicate files)
 ```
 
 ## Usage
